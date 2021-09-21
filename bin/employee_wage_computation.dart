@@ -43,4 +43,17 @@ void main(List<String> args) {
 
   empWage = empHrs * emp_rate_per_hr;
   print(empWage);
+
+  switch (empCheckForpt) {
+    case 1:
+      empHrs = 8;
+      break;
+    case 2:
+      empHrs = 4;
+      break;
+    case 3:
+      empHrs = 0;
+  }
+  empWage = empHrs * emp_rate_per_hr;
+  print(empWage);
 }
