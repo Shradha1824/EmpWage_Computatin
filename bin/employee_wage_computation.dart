@@ -1,13 +1,16 @@
 import 'dart:math';
 
 void main(List<String> args) {
-  final num_of_working_days = 2;
+  final num_of_working_days = 20;
+  final max_hr_in_month = 100;
   var empHrs = 0;
   var empWage = 0;
   var is_full_day = 1;
   var is_half_day = 2;
   var emp_rate_per_hr = 20;
   var totalEmpWage = 0;
+  var totalEmpHrs = 0;
+  var totalWorkingDays = 0;
 
   var r = Random();
   var empCheck = r.nextInt(2);
@@ -74,5 +77,23 @@ void main(List<String> args) {
     empWage = empHrs * emp_rate_per_hr;
     totalEmpWage = totalEmpWage + empWage;
     print(totalEmpWage);
+  }
+
+  while (totalEmpHrs <= max_hr_in_month &&
+      totalWorkingDays < num_of_working_days) {
+    totalWorkingDays++;
+    switch (empCheckForpt) {
+      case 1:
+        empHrs = 8;
+        break;
+      case 2:
+        empHrs = 4;
+        break;
+      default:
+        empHrs = 0;
+    }
+    totalEmpHrs += empHrs;
+    print('Days: $totalWorkingDays');
+    print("'EmpHrs: $totalEmpHrs");
   }
 }
