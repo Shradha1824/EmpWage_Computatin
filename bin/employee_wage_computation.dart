@@ -79,10 +79,42 @@ void main(List<String> args) {
     print(totalEmpWage);
   }
 
-  while (totalEmpHrs <= max_hr_in_month &&
-      totalWorkingDays < num_of_working_days) {
+  while (
+      totalEmpHrs < max_hr_in_month && totalWorkingDays < num_of_working_days) {
     totalWorkingDays++;
     switch (empCheckForpt) {
+      case 1:
+        empHrs = 8;
+        break;
+      case 2:
+        empHrs = 4;
+        break;
+      default:
+        empHrs = 0;
+    }
+    totalEmpHrs += empHrs;
+    print('Days: $totalWorkingDays');
+    print("'EmpHrs: $totalEmpHrs");
+  }
+
+  print('Using Function');
+  computeEmpWage();
+}
+
+computeEmpWage() {
+  final num_of_working_days = 20;
+  final max_hr_in_month = 100;
+  var empHrs = 0;
+  var totalEmpHrs = 0;
+  var totalWorkingDays = 0;
+
+  var r = Random();
+  var empCheck = r.nextInt(3);
+
+  while (
+      totalEmpHrs < max_hr_in_month && totalWorkingDays < num_of_working_days) {
+    totalWorkingDays++;
+    switch (empCheck) {
       case 1:
         empHrs = 8;
         break;
