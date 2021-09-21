@@ -111,9 +111,7 @@ computeEmpWage() {
   var r = Random();
   var empCheck = r.nextInt(3);
 
-  while (
-      totalEmpHrs < max_hr_in_month && totalWorkingDays < num_of_working_days) {
-    totalWorkingDays++;
+  while (totalEmpHrs < max_hr_in_month) {
     switch (empCheck) {
       case 1:
         empHrs = 8;
@@ -125,7 +123,6 @@ computeEmpWage() {
         empHrs = 0;
     }
     totalEmpHrs += empHrs;
-    print('Days: $totalWorkingDays');
     print("'EmpHrs: $totalEmpHrs");
   }
 }
