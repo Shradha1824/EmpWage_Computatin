@@ -100,6 +100,7 @@ void main(List<String> args) {
   print('Using Function');
   computeEmpWage();
   dailyWageAlongTotalWage();
+  storeDayDailyAndTotalWage();
 }
 
 computeEmpWage() {
@@ -158,4 +159,41 @@ dailyWageAlongTotalWage() {
   totalEmpWage = num_of_working_days * dailyWage;
   print("+++++++++++++ $totalEmpWage");
   print('"DailyWage:" $dailyWage + "totalWage:" $totalEmpWage ');
+}
+
+storeDayDailyAndTotalWage() {
+  final num_of_working_days = 20;
+  var empHrs = 0;
+  var empWage = 0;
+  var emp_rate_per_hr = 20;
+  var totalEmpWage = 0;
+  var totalWorkingDays = 0;
+  var totalEmpHrs;
+
+  var r = Random();
+  var empCheckForpt = r.nextInt(3);
+  while (totalWorkingDays < num_of_working_days) {
+    totalWorkingDays++;
+    switch (empCheckForpt) {
+      case 1:
+        empHrs = 8;
+        break;
+      case 2:
+        empHrs = 4;
+        break;
+      default:
+        empHrs = 0;
+    }
+
+    // totalEmpHrs += empHrs;
+    print('Days: $totalWorkingDays');
+
+    var dailyWage = empHrs * emp_rate_per_hr;
+    print(dailyWage);
+
+    totalEmpWage = num_of_working_days * dailyWage;
+    print('+++++++++++++ $totalEmpWage');
+    print(
+        '"totalWorkingDays:" $totalWorkingDays + "DailyWage:" $dailyWage + "totalWage:" $totalEmpWage ');
+  }
 }
